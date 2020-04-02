@@ -6,8 +6,13 @@ import styled from 'styled-components'
 
 export const Div1 = styled.div`
     width: 100%;
-    height: 100%;
+    height: 80vh;
     border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     // background-color: #f5f0f5;
     // border: 1px solid blue;
 `
@@ -27,9 +32,15 @@ export const LabelDiv = styled.div`
     width: 350px;    
 `;
 
+export const FormikForm = styled(Form)`
+    margin: 0 auto;
+    width: 50%;
+    // border: 1px solid green;
+`
+
 export const FieldInfo = styled(Field)`
     border-radius: 5px;
-    border: 1px solid gray;
+    border: 1.25px solid gray;
     width: 200px;
     padding: 10px;
 `;
@@ -53,37 +64,32 @@ const SignUpButton = styled.button`
     transition: all 0.4s ease 0s;
     margin: 20px;
     width: 25%;
+    cursor: pointer;
 
         &:hover{
-            background-color: #ADF1D2;
-            box-shadow: 10px 5px 5px #070707;
+            background-color: #B289B2;
+            box-shadow: 10px 5px 5px #553555;
         }
 `
-const GetStarted = styled.h2`
+export const GetStarted = styled.h2`
     color: #553555;
+    width: 50%;
+    margin-bottom: 0.5rem;
+    // border: 1px solid blue;
 `
 const Desc = styled.p`
     color: #706f6c;
     width: 50%;
-    margin-top: -3%;
-    text-align: left;
-`
-const PDiv = styled.div`
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    max-width: 700px;
-    margin-bottom: 1%;
+    margin-top: 0;
+    text-align: center;
+    // border: 1px solid red;
 `
 
 const DivContainer = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
     // border: 1px solid black;
-`
-const FlexDiv = styled.div`
-    display: flex;
-    justify-content: center;
 `
 
 
@@ -101,15 +107,10 @@ const SignUp = ({ values, touched, errors, status }) => {
         <Div1>
             <DivContainer>
                 <GetStarted>Get started with a free account</GetStarted>
-                <FlexDiv>
-                    <PDiv>
-                        <Desc>Create an account to start hacking your life by discovering and sharing the best life hacks on the internet.</Desc>
-                    </PDiv>
-                </FlexDiv>
-
+                <Desc>Create an account to start hacking your life by discovering and sharing the best life hacks on the internet.</Desc>
             </DivContainer>
 
-            <Form>
+            <FormikForm >
                 <SignUpDiv>
 
                     <LabelDiv>
@@ -138,7 +139,7 @@ const SignUp = ({ values, touched, errors, status }) => {
                     </LabelDiv>
 
                 </SignUpDiv>
-            </Form>
+            </FormikForm>
         </Div1>
     )
 }

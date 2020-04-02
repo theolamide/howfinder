@@ -18,8 +18,7 @@ import SearchForm from "./Components/SearchForm";
 
 function App() {
   return (
-    // <Router>
-    <div className="App">
+    <div className="App" style={{ height: "100%" }}>
       <HashRouter>
         <Nav />
 
@@ -35,7 +34,6 @@ function App() {
         </Switch>
       </HashRouter>
     </div>
-    // </Router>
   );
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
-import { Div1, SignUpDiv, LabelDiv, Label, FieldInfo } from './SignUp';
+import { Div1, SignUpDiv, LabelDiv, FieldInfo, GetStarted, FormikForm } from './SignUp';
 import * as Yup from 'yup';
 import axios from 'axios';
 import Styled from 'styled-components';
@@ -17,10 +17,10 @@ const LogInto = Styled.button`
     transition: all 0.4s ease 0s;
     margin: 20px;
     width: 25%;
-
+    cursor: pointer;
         &:hover{
-            background-color: #ADF1D2;
-            box-shadow: 10px 5px 5px #070707;
+            background-color: #B289B2;
+            box-shadow: 10px 5px 5px #553555;
         }
 `
 
@@ -36,7 +36,8 @@ const LogIn = ({ values, errors, touched, status }, props) => {
     }, [status]);
     return (
         <Div1 className="FormField">
-            <Form>
+            <GetStarted>Sign In</GetStarted>
+            <FormikForm>
                 <SignUpDiv>
                     <LabelDiv>
                         <FieldInfo
@@ -62,10 +63,10 @@ const LogIn = ({ values, errors, touched, status }, props) => {
                     </LabelDiv>
 
                     <LabelDiv>
-                        <LogInto type="submit"> Log In! </LogInto>
+                        <LogInto type="submit">SIGN IN</LogInto>
                     </LabelDiv>
                 </SignUpDiv>
-            </Form>
+            </FormikForm>
         </Div1>
     )
 
