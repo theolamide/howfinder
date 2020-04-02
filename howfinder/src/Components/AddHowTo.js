@@ -1,128 +1,67 @@
 import React from 'react';
 import { axiosWithoutAuth } from './utils/axiosWithAuth';
 import Styled from 'styled-components';
+import { LabelDiv } from './SignUp';
 
-const Icons = Styled.div`
-display: flex;
-flex-flow: row wrap;
-justify-content: space-around;
-
-`
-
-const Yellow = Styled.div`
-color: black;
-font-size: 70px;
-
-
-:hover{
-    color: #96C5B0;
-    transform: scale(1.5) rotate(30deg);
-   
-}
-
-`
-const Blue = Styled.div`
-color: black;
-font-size: 70px;
-
-
-:hover{
-    color: 	#FF00FF;
-    transform: scale(1.5) rotate(30deg);
-   
-}
-
-`
-const Violet = Styled.div`
-color: black;
-font-size: 70px;
-
-
-:hover{
-    color: 	#9400D3;
-    transform: scale(1.5) rotate(30deg);
-   
-}
-
-`
-
-
-const Pink = Styled.div`
-color: black;
-font-size: 70px;
-
-
-:hover{
-    color: #FF1493;
-    transform: scale(1.5) rotate(-30deg);
- 
-}
-
-`
-
-const Red = Styled.div`
-color: black;
-font-size: 70px;
-
-:hover{
-    color: 	#B22222;
-    transform: scale(1.5) rotate(-30deg);  
-   
-}
-
-`
 
 const Howto = Styled.div`
-background-color: #755B69;
-box-shadow: black 3px 5px;
-height: 60vh;
-width: 70%;
-margin-left: 15%;
-
-
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // border: 1px solid blue;
 `
 const MainTitle = Styled.h2`
-font-family: ComicSansMs;
-font-size: 50px;
-
+    mergin-top: 0; 
+    color: #553555;   
+`
+const Form = Styled.form`
+    // border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 `
 const ContentTitle = Styled.input`
-
-width: 50%;
-height: 5vh;
-display:block;
-margin-left: 25%;
-margin-top: 5%;
-font-size: 15px;
-text-align: center;
-font-weight: bold;
-
-
-
+    width: 200px;
+    height: 2.5rem;
+    display:block;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1.25px solid gray;
+    margin: 0.5%;
 `
 const Content = Styled.textarea`
-width: 50%;
-height: 5vh;
-display:block;
-margin-left: 25%;
-margin-top: 5%;
-font-size: 15px;
-text-align: center;
-font-weight: bold;
-
+    width: 200px;
+    height: 5rem;
+    display:block;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1.25px solid gray;
+    margin: 0.5%;
 `
 const ButtonStyle = Styled.button`
-width: 15%;
-height: 5vh;
-margin-top: 5%;
-text-align: center;
-font-weight: bold;
-background-color: #ADF1D2;
-
-:hover{
-    background-color: #96C5B0;
-    box-shadow: black 5px 5px;
-}
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #553555;
+    padding: 15px;
+    border-radius: 5px;
+    border: none;
+    transition: all 0.4s ease 0s;
+    width: 25%;
+    cursor: pointer;
+        &:hover{
+            background-color: #B289B2;
+            box-shadow: 10px 5px 5px #553555;
+        }
 `
 
 
@@ -155,44 +94,15 @@ export class AddHowTo extends React.Component {
             .then(res => {
                 console.log(res)
                 this.props.history.push('/dashboard')
-                // window.location="/dashboard"
             })
     }
 
     render() {
         return (
-            <div>
-                <h2>Add How-To</h2>
-
-                <link rel={"stylesheet"} href={"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"} />
-                <Icons>
-                    <Yellow>
-                        <i className="fa fa-car"></i>
-                    </Yellow>
-                    <Pink>
-                        <i className="fa fa-bicycle"></i>
-                    </Pink>
-
-                    <Red>
-                        <i className="fa fa-camera"></i>
-                    </Red>
-
-                    <Blue>
-                        <i className="fa fa-coffee"></i>
-                    </Blue>
-
-                    <Violet>
-                        <i className="fa fa-glass"></i>
-                    </Violet>
-
-                    <Violet>
-                        <i className="fa fa-globe"></i>
-                    </Violet>
-
-                </Icons>
-                <Howto>
-                    <MainTitle>Add How-To</MainTitle>
-                    <form>
+            <Howto>
+                <MainTitle>addHow</MainTitle>
+                <Form>
+                    <LabelDiv>
                         <ContentTitle
                             type="text"
                             name="name"
@@ -200,6 +110,8 @@ export class AddHowTo extends React.Component {
                             value={this.state.addNewHowTo.name}
                             onChange={this.handleChange}
                         />
+                    </LabelDiv>
+                    <LabelDiv>
                         <Content
                             type="text"
                             name="desc"
@@ -207,37 +119,14 @@ export class AddHowTo extends React.Component {
                             value={this.state.addNewHowTo.desc}
                             onChange={this.handleChange}
                         />
-
-
+                    </LabelDiv>
+                    <LabelDiv>
                         <ButtonStyle type="submit" onClick={this.postNewHowTo}>
                             Publish
-                        </ButtonStyle>
-                    </form>
-                </Howto>
-            </div>
+                    </ButtonStyle>
+                    </LabelDiv>
+                </Form>
+            </Howto>
         )
     }
 }
-
-//Old Code
-{/* <form>
-                    <input 
-                        type="text"
-                        name="name"
-                        placeholder="title"
-                        value={this.state.addNewHowTo.name}
-                        onChange={this.handleChange}
-                    />
-                    <textarea
-                        type="text"
-                        name="desc"
-                        placeholder="content"
-                        value={this.state.addNewHowTo.desc}
-                        onChange={this.handleChange}
-                    />
-                   
-
-                    <button type="submit" onClick={this.postNewHowTo}>
-                        Publish
-                    </button>
-                </form> */}

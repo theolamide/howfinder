@@ -1,80 +1,41 @@
-import React, { useEffect, useState } from 'react'
-import Styled from 'styled-components';
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import { AddHowTo } from './AddHowTo';
 import { axiosWithoutAuth } from './utils/axiosWithAuth';
 import { HowToCard } from './HowToCard';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
-// const CardsContainer = Styled.div`
-// display: flex;
-// flex-wrap: wrap;
-// `
 
-// const IndividualCards= Styled.div`
-// border: 1px solid black;
-// border-radius: 1rem;
-// width: 25%;
-// margin: 1rem;
-// `
 
-export default class Dashboard extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            howtos: []
-        }
-    }
+export default function Dashboard() {
 
-    getData = () => {
+    const [state, setState] = useState({ howtos: [] })
+
+    useEffect(() => getData(), [])
+
+    const getData = () => {
         axiosWithoutAuth()
             .get('howtos')
             .then(res => {
                 console.log(res.data)
-                this.setState({ howtos: res.data })
+                setState({ howtos: res.data })
             })
             .catch(err => console.log(err))
     }
 
-    componentDidMount() {
-        this.getData();
-    }
-
-    deleteCard = (id) => {
+    const deleteCard = (id) => {
         axiosWithoutAuth()
             .delete(`https://build-week-how-to.herokuapp.com/api/howtos/${id}`)
             .then(res => {
                 console.log(res);
-                this.getData();
+                getData();
             })
             .catch(err => console.log(err.response));
     }
 
-    render() {
-        return (
-            <div>
-                <Route
-                    render={props => {
-                        return <HowToCard {...props} howtos={this.state.howtos} deleteCard={this.deleteCard} />
-                    }}
-                />
-            </div>
-        )
-    }
 
+    return (
+        <div>
+            <AddHowTo />
+            <HowToCard howtos={state.howtos} deleteCard={deleteCard} />
+        </div>
+    )
 }
-
-
-{/* <CardsContainer className='CardsContainer' >
-                {howtos.map(item => (
-                    <IndividualCards key={item.id} className='IndividualCards' >
-                        <h2> {item.name} </h2>
-                        <p> {item.desc} </p>
-                        <button onClick={()=> {this.props.history.push(`/update-howtos/${item.id}`)}} >
-                            Edit
-                        </button>
-                        <button  onClick={()=>this.deleteCard(item.id)}>
-                            Delete
-                        </button>
-                    </IndividualCards>
-                ))}
-            </CardsContainer> */}

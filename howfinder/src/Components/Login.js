@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { withFormik, Form, Field } from 'formik';
-import { Div1, SignUpDiv, LabelDiv, Label, FieldInfo } from './SignUp';
+import { Div1, SignUpDiv, LabelDiv, FieldInfo, GetStarted, FormikForm } from './SignUp';
 import * as Yup from 'yup';
 import axios from 'axios';
 import Styled from 'styled-components';
@@ -17,10 +17,10 @@ const LogInto = Styled.button`
     transition: all 0.4s ease 0s;
     margin: 20px;
     width: 25%;
-
+    cursor: pointer;
         &:hover{
-            background-color: #ADF1D2;
-            box-shadow: 10px 5px 5px #070707;
+            background-color: #B289B2;
+            box-shadow: 10px 5px 5px #553555;
         }
 `
 
@@ -36,7 +36,8 @@ const LogIn = ({ values, errors, touched, status }, props) => {
     }, [status]);
     return (
         <Div1 className="FormField">
-            <Form>
+            <GetStarted>Sign In</GetStarted>
+            <FormikForm>
                 <SignUpDiv>
                     <LabelDiv>
                         <FieldInfo
@@ -62,10 +63,10 @@ const LogIn = ({ values, errors, touched, status }, props) => {
                     </LabelDiv>
 
                     <LabelDiv>
-                        <LogInto type="submit"> Log In! </LogInto>
+                        <LogInto type="submit">SIGN IN</LogInto>
                     </LabelDiv>
                 </SignUpDiv>
-            </Form>
+            </FormikForm>
         </Div1>
     )
 
@@ -100,155 +101,3 @@ const LogInForms = withFormik({
 })(LogIn);
 
 export default LogInForms;
-
-{/* <Icons>
-    <Yellow>
-        <i className="fa fa-car"></i>
-    </Yellow>
-    <Pink>
-        <i className="fa fa-bicycle"></i>
-    </Pink>
-
-    <Red>
-        <i className="fa fa-camera"></i>
-    </Red>
-
-    <Blue>
-        <i className="fa fa-coffee"></i>
-    </Blue>
-
-    <Violet>
-        <i className="fa fa-glass"></i>
-    </Violet>
-
-    <Violet>
-        <i className="fa fa-globe"></i>
-    </Violet>
-
-</Icons> */}
-
-
-// const Icons = Styled.div`
-// display: flex;
-// flex-flow: row wrap;
-// justify-content: space-around;
-
-// `
-
-// const Yellow = Styled.div`
-// color: black;
-// font-size: 70px;
-
-
-// :hover{
-//     color: #96C5B0;
-//     transform: scale(1.5) rotate(30deg);
-
-// }
-
-// `
-// const Blue = Styled.div`
-// color: black;
-// font-size: 70px;
-
-
-// :hover{
-//     color: 	#FF00FF;
-//     transform: scale(1.5) rotate(30deg);
-
-// }
-
-// `
-// const Violet = Styled.div`
-// color: black;
-// font-size: 70px;
-
-
-// :hover{
-//     color: 	#9400D3;
-//     transform: scale(1.5) rotate(30deg);
-
-// }
-
-// `
-
-
-// const Pink = Styled.div`
-// color: black;
-// font-size: 70px;
-
-
-// :hover{
-//     color: #FF1493;
-//     transform: scale(1.5) rotate(-30deg);
-
-
-
-// }
-
-// `
-
-// const Red = Styled.div`
-// color: black;
-// font-size: 70px;
-
-// :hover{
-//     color: 	#B22222;
-//     transform: scale(1.5) rotate(-30deg);
-
-
-
-// }
-
-// `
-
-// const Entire = Styled(Form)`
-
-// background-color: #755B69;
-// display: flex;
-// box-shadow: black 3px 5px;
-// flex-direction: column;
-// width: 70%;
-// height: 40vh;
-// margin-left: 15%
-// margin-top: 15%
-// padding-top: 5%
-// position: fixed;
-
-
-
-
-// `
-
-// const LoginField = Styled(Field)`
-// background-color: #755B69;
-// border: .1px dotted white;
-// color: white;
-// font-weight: bold;
-// font-size: 15px;
-// width: 45%;
-// margin-left: 25%;
-// margin-top: 2%;
-// height: 5vh;
-// text-align: center;
-
-
-// `
-
-// const LogInto = Styled.button`
-
-// width: 35%;
-// margin-left: 30%;
-// margin-right: 50%;
-// height: 5vh;
-// margin-top: 2%;
-// color: black;
-// font-weight: bold;
-// font-size: 15px;
-// background-color: #ADF1D2;
-
-// :hover{
-//     background-color: #96C5B0;
-//     box-shadow: black 5px 5px;
-// }
-// `
