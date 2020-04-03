@@ -1,6 +1,7 @@
 import React from 'react';
 import Styled from 'styled-components';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+// import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom'
 
 const CardsContainer = Styled.div`
     display: flex;

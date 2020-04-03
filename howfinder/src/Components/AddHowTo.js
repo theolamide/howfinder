@@ -93,7 +93,7 @@ export class AddHowTo extends React.Component {
             .post('howtos', this.state.addNewHowTo)
             .then(res => {
                 console.log(res)
-                this.props.history.push('/dashboard')
+                // this.props.history.push('/dashboard')
             })
     }
 
