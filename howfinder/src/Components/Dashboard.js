@@ -5,7 +5,7 @@ import { HowToCard } from './HowToCard';
 
 
 
-export default function Dashboard() {
+export default function Dashboard(props) {
 
     const [state, setState] = useState({ howtos: [] })
 
@@ -35,7 +35,7 @@ export default function Dashboard() {
     return (
         <div>
             <AddHowTo />
-            <HowToCard howtos={state.howtos} deleteCard={deleteCard} />
+            <HowToCard howtos={state.howtos} deleteCard={deleteCard} history={props.history} />
         </div>
     )
 }

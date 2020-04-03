@@ -75,7 +75,7 @@ export const GetStarted = styled.h2`
     color: #553555;
     width: 50%;
     margin-bottom: 0.5rem;
-    border: 1px solid blue;
+    //border: 1px solid blue;
 `
 const Desc = styled.p`
     color: #706f6c;
@@ -95,6 +95,7 @@ const DivContainer = styled.div`
 
 const SignUp = ({ values, touched, errors, status }) => {
 
+    // eslint-disable-next-line
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
