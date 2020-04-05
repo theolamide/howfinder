@@ -1,13 +1,28 @@
 import React from 'react';
 import Styled from 'styled-components';
 // import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import { withRouter } from 'react-router-dom'
+
 
 const CardsContainer = Styled.div`
     display: flex;
     flex-wrap: wrap;
+    height: 100%;
     justify-content: center;
     align-items: center;
+    // border: 1px solid black;
+
+    overflow: scroll;
+        &::-webkit-scrollbar
+            {
+                width: 5px;
+                height: 0px;
+                background-color: white;
+            } 
+        &::-webkit-scrollbar-thumb
+            {
+                background-color: #CC92CC;
+            }
+
 `
 const IndividualCards = Styled.div`
     background-color: #BF77BF;
@@ -19,54 +34,47 @@ const IndividualCards = Styled.div`
     cursor: pointer;
     text-transform: capitalize;
     opacity: .8;
-
-    :hover{
-        transform: scale(1.1);
-        color: white;
-        opacity: 1;
-    }
-
 `
 
 const EditButton = Styled.button`
-color: #fff !important;
-text-decoration: none;
-background: #553555;
-padding: 10px;
-border-radius: 5px;
-display: inline-block;
-text-align: center;
-border: none;
-margin: 20px;
-width: 50px;
-height: 40px;
-font-size: .8rem;
-font-weight: 400;
+    color: #fff !important;
+    text-decoration: none;
+    background: #553555;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    margin: 20px;
+    width: 50px;
+    height: 40px;
+    font-size: .8rem;
+    font-weight: 400;
 
-&:hover{
-    background-color: #ADF1D2;
-    box-shadow: 10px 5px 5px #070707;
-}
+        &:hover{
+            background-color: #ADF1D2;
+            box-shadow: 10px 5px 5px #070707;
+        }
 `
 const DeleteButton = Styled.button`
-color: #fff !important;
-text-decoration: none;
-background: #553555;
-padding: 10px;
-border-radius: 5px;
-display: inline-block;
-text-align: center;
-border: none;
-margin: 20px;
-width: 60px;
-height: 40px;
-font-size: .8rem;
-font-weight: 400;
+    color: #fff !important;
+    text-decoration: none;
+    background: #553555;
+    padding: 10px;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    border: none;
+    margin: 20px;
+    width: 60px;
+    height: 40px;
+    font-size: .8rem;
+    font-weight: 400;
 
-&:hover{
-    background-color: red;
-    box-shadow: 10px 5px 5px #070707;
-}
+        &:hover{
+            background-color: red;
+            box-shadow: 10px 5px 5px #070707;
+        }
 `
 
 export const HowToCard = props => {
@@ -83,7 +91,6 @@ export const HowToCard = props => {
                     </Link> */}
 
                     <EditButton onClick={(e) => {
-
                         e.preventDefault();
                         console.log('Button CLicked');
                         props.history.push(`/update-howtos/${item.id}`);
@@ -104,8 +111,8 @@ export const HowToCard = props => {
     )
 }
 
-{/* <button onClick={()=> {props.history.push(`/update-howtos/${item.id}`)}} >
+/* <button onClick={()=> {props.history.push(`/update-howtos/${item.id}`)}} >
                             Edit
-                        </button> */}
+                        </button> */
 
                         // window.location.reload();

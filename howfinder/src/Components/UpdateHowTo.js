@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { axiosWithAuth, axiosWithoutAuth } from './utils/axiosWithAuth';
+import { axiosWithoutAuth } from './utils/axiosWithAuth';
 import styled from "styled-components";
 
 const ContainerDiv = styled.div`
@@ -93,7 +93,7 @@ export const UpdateHowTo = props => {
                 setUpdateForm(res.data)
             })
             .catch(err => console.log('this is useEffect error', err))
-    }, [])
+    }, [props.match.params.id])
 
 
     const handleSubmit = event => {

@@ -27,7 +27,8 @@ export default function SearchForm() {
 
     useEffect(() => {
         axiosWithAuth()
-            .get("https://build-week-how-to.herokuapp.com/api/howtos")
+            // .get("https://build-week-how-to.herokuapp.com/api/howtos")
+            .get("http://localhost:3300/api/howtos")
             .then(response => {
                 console.log(response)
                 const howtos = response.data.filter(data => data.name.toLowerCase().includes(query.toLowerCase())

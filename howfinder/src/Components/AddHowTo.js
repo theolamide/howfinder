@@ -5,9 +5,8 @@ import { LabelDiv } from './SignUp';
 
 
 const Howto = Styled.div`
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
+    width: 50%;
+    height: 85vh;
     text-align: center;
     display: flex;
     flex-direction: column;
