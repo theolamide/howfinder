@@ -25,15 +25,23 @@ const CardsContainer = Styled.div`
 
 `
 const IndividualCards = Styled.div`
-    background-color: #BF77BF;
-    border-radius: .8rem;
+    background-color: #EDD5ED;
+    border-radius: .25rem;
     width: 70%
     // height: 55vh;
-    margin: 1rem;
-    color: #070707;
-    cursor: pointer;
-    text-transform: capitalize;
-    opacity: .8;
+    margin: 0.5rem;
+    color: #070707;    
+    // text-transform: capitalize;
+    padding: 0.5rem;
+
+            h2{
+                text-align: center;
+                margin-top: 0;
+            }
+
+            p{
+                margin:0 1rem;
+            }
 `
 
 const EditButton = Styled.button`
@@ -50,6 +58,7 @@ const EditButton = Styled.button`
     height: 40px;
     font-size: .8rem;
     font-weight: 400;
+    cursor: pointer;
 
         &:hover{
             background-color: #ADF1D2;
@@ -70,6 +79,7 @@ const DeleteButton = Styled.button`
     height: 40px;
     font-size: .8rem;
     font-weight: 400;
+    cursor: pointer;
 
         &:hover{
             background-color: red;
@@ -79,14 +89,13 @@ const DeleteButton = Styled.button`
 
 export const HowToCard = props => {
     var Username = localStorage.getItem('username')
-    // console.log("Post user ID:", Username)
 
 
     return (
         <CardsContainer>
             {props.howtos.map(item => (
                 <IndividualCards key={item.id} className='IndividualCards' >
-                    <h2> {item.name} </h2>
+                    <h2> {item.name} by {item.username}</h2>
                     <p> {item.desc} </p>
 
                     {/* Conditional Rendering of edit and delete buttons */}

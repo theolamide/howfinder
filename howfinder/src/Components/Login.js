@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import { withFormik } from 'formik';
 import { Div1, SignUpDiv, LabelDiv, FieldInfo, GetStarted, FormikForm } from './SignUp';
 import * as Yup from 'yup';
@@ -21,6 +22,18 @@ const LogInto = Styled.button`
         &:hover{
             background-color: #B289B2;
             box-shadow: 10px 5px 5px #553555;
+        }
+`
+
+const NavLink = Styled(Link)`
+    padding: 0.5rem;
+    width: 5rem;
+    color: #553555;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+        &:hover{
+        color: #ED53ED;
         }
 `
 
@@ -68,6 +81,11 @@ const LogIn = ({ values, errors, touched, status }, props) => {
                     </LabelDiv>
                 </SignUpDiv>
             </FormikForm>
+            <p>Don't have an account yet?
+                <NavLink to="/signup">
+                    <strong>Sign Up</strong>
+                </NavLink>
+            </p>
         </Div1>
     )
 
@@ -97,7 +115,7 @@ const LogInForms = withFormik({
                 localStorage.setItem("token", res.data.token);
                 localStorage.setItem("user_id", res.data.user_id);
                 localStorage.setItem("username", res.data.username)
-                props.history.push('/add-how-to')
+                props.history.push('/dashboard')
             })
             .catch(err => console.log(err.response));
     }
