@@ -1,7 +1,5 @@
 import React from 'react';
 import { Route, Switch, HashRouter } from 'react-router-dom';
-
-import logo from './logo.svg';
 import './App.css';
 
 import LogInForms from './Components/Login';

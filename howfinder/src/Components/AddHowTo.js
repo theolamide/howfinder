@@ -5,14 +5,15 @@ import { LabelDiv } from './SignUp';
 
 
 const Howto = Styled.div`
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
+    margin: 3rem 0;
+    width: 50%;
+    height: 70vh;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     // border: 1px solid blue;
+    border-right: 2px solid #553555;
 `
 const MainTitle = Styled.h2`
     mergin-top: 0; 
@@ -68,11 +69,17 @@ const ButtonStyle = Styled.button`
 export class AddHowTo extends React.Component {
     constructor(props) {
         super(props);
+        console.log(this.props.history)
         this.state = {
             addNewHowTo: {
                 name: '',
                 desc: '',
                 user_id: localStorage.getItem("user_id")
+            },
+
+            initial: {
+                name: '',
+                desc: ''
             }
         };
     }
@@ -93,6 +100,7 @@ export class AddHowTo extends React.Component {
             .post('howtos', this.state.addNewHowTo)
             .then(res => {
                 console.log(res)
+                console.log(this.props)
                 // this.props.history.push('/dashboard')
             })
     }
@@ -101,7 +109,7 @@ export class AddHowTo extends React.Component {
         return (
             <Howto>
                 <MainTitle>addHow</MainTitle>
-                <Form>
+                <Form >
                     <LabelDiv>
                         <ContentTitle
                             type="text"
@@ -126,7 +134,7 @@ export class AddHowTo extends React.Component {
                     </ButtonStyle>
                     </LabelDiv>
                 </Form>
-            </Howto>
+            </Howto >
         )
     }
 }
