@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import styled from 'styled-components';
 
 
@@ -18,43 +18,62 @@ const H1Style = styled.h1`
 
 
 const NavLink = styled(Link)`
-    margin: 1%;
-    width: 150px;
+    padding: 0.5rem;
+    width: 5rem;
     text-decoration: none;
-    color: white;
-
-    &:hover{
-        color: #ADF1D2;
-    }
-`
-
-const BoxSpan = styled.span`
-    border: 1px solid white;
-    padding: 10px;
-
-    &:hover{
-        border: 1px solid #ADF1D2;
-    }
+    color: #EDD5ED;
+    text-align: center;
+    cursor: pointer;
+        &:hover{
+        background-color: #553555;
+        color: white;
+        }
 `
 const NavDiv = styled.div`
     display: flex;
     width: 100%;
     justify-content: flex-end;
+    margin: 0 2rem;
+
+        button{
+            padding: 0.5rem;
+            width: 5rem;
+            background: #EDD5ED;
+            border: 1px solid #EDD5ED;
+            border-radius: 0.25rem;
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+                &:hover{
+                background-color: #553555;
+                color: white;
+                box-shadow: 0.75px 0.75px 0.75px #EDD5ED;
+                }
+        }
 `
 
-const Nav = () => {
+const Nav = (props) => {
+
+    const Logout = () => {
+        localStorage.clear()
+        props.history.push("/login")
+    }
+
     return (
         <NavBox>
             <H1Style>How-To</H1Style>
 
             <NavDiv>
-                <NavLink to="/dashboard">Newsfeed</NavLink>
+                <NavLink to="/dashboard">howFeed</NavLink>
                 <NavLink to="/searchform">Search</NavLink>
-                <NavLink to="/login">Login</NavLink>
-                <NavLink to="/signUp"><BoxSpan>Sign Up</BoxSpan></NavLink>
+                {/* Conditional Rendering of Login and Logout buttons */}
+                {localStorage.getItem('token') ?
+                    (<button onClick={Logout} > Logout </button>) :
+                    null
+                }
             </NavDiv>
         </NavBox>
     )
 }
 
-export default Nav;
+export default withRouter(Nav);

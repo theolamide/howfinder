@@ -13,3 +13,11 @@ body::-webkit-scrollbar-thumb
 {
     background-color: white;
 }
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+textarea  
+{  
+    font-family: 'Quicksand', sans-serif;
+}

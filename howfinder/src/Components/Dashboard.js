@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Styled from 'styled-components';
 import { AddHowTo } from './AddHowTo';
-import { axiosWithoutAuth, axiosWithAuth } from './utils/axiosWithAuth';
+import { axiosWithoutAuth } from './utils/axiosWithAuth';
 import { HowToCard } from './HowToCard';
 
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react"
+import { Link } from "react-router-dom";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
@@ -91,6 +92,17 @@ const DivContainer = styled.div`
     align-items: center;
     // border: 1px solid black;
 `
+const NavLink = styled(Link)`
+    padding: 0.5rem;
+    width: 5rem;
+    color: #553555;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+        &:hover{
+        color: #ED53ED;
+        }
+`
 
 
 const SignUp = ({ values, touched, errors, status }) => {
@@ -136,11 +148,17 @@ const SignUp = ({ values, touched, errors, status }) => {
                     </LabelDiv>
 
                     <LabelDiv>
-                        <SignUpButton type="submit">Submit</SignUpButton>
+                        <SignUpButton type="submit">Sign Up</SignUpButton>
                     </LabelDiv>
 
                 </SignUpDiv>
             </FormikForm>
+
+            <p>Already have an account?
+                <NavLink to="/login">
+                    <strong>Sign In</strong>
+                </NavLink>
+            </p>
         </Div1>
     )
 }
