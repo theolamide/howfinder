@@ -83,6 +83,7 @@ const initial = {
 
 export const UpdateHowTo = props => {
     const [updateForm, setUpdateForm] = useState(initial);
+    console.log(props)
 
     useEffect(() => {
         console.log(props.match.params.id)
@@ -113,7 +114,9 @@ export const UpdateHowTo = props => {
 
     return (
         <ContainerDiv>
+
             <EditHeading>Edit this How-To</EditHeading>
+
             <Divy>
 
                 <EditForm onSubmit={handleSubmit} >
@@ -124,6 +127,7 @@ export const UpdateHowTo = props => {
                         value={updateForm.name}
                         onChange={handleChange}
                     />
+
                     <EditDesc
                         type="text"
                         name="desc"
@@ -132,14 +136,12 @@ export const UpdateHowTo = props => {
                         onChange={handleChange}
                     />
 
-
                     <UpdateButton type="submit">
                         Update
-                </UpdateButton>
+                    </UpdateButton>
                 </EditForm>
+
             </Divy>
-
-
 
         </ContainerDiv>
     )

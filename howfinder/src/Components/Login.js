@@ -96,6 +96,7 @@ const LogInForms = withFormik({
                 // debugger
                 localStorage.setItem("token", res.data.token);
                 localStorage.setItem("user_id", res.data.user_id);
+                localStorage.setItem("username", res.data.username)
                 props.history.push('/add-how-to')
             })
             .catch(err => console.log(err.response));

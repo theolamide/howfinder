@@ -16,21 +16,25 @@ export default function Dashboard(props) {
         axiosWithoutAuth()
             .get('howtos')
             .then(res => {
-                console.log("Inside", res.data)
+                // console.log("Inside", res.data)
                 setState({ howtos: res.data })
             })
 
-            .catch(err => console.log("FE Error", err))
+            .catch(err => {
+                alert(err.response)
+                console.log("FE Error", err)
+            })
     }
 
     const deleteCard = (id) => {
         axiosWithoutAuth()
-            .delete(`https://build-week-how-to.herokuapp.com/api/howtos/${id}`)
+            .delete(`/howtos/${id}`)
             .then(res => {
                 console.log(res);
                 getData();
             })
             .catch(err => {
+                alert(err.response)
                 console.log(err.response)
                 console.log("FE Error", err)
             });

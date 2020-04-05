@@ -27,8 +27,8 @@ const CardsContainer = Styled.div`
 const IndividualCards = Styled.div`
     background-color: #BF77BF;
     border-radius: .8rem;
-    width: 30%;
-    height: 55vh;
+    width: 70%
+    // height: 55vh;
     margin: 1rem;
     color: #070707;
     cursor: pointer;
@@ -78,7 +78,10 @@ const DeleteButton = Styled.button`
 `
 
 export const HowToCard = props => {
-    // console.log(props)
+    var Username = localStorage.getItem('username')
+    // console.log("Post user ID:", Username)
+
+
     return (
         <CardsContainer>
             {props.howtos.map(item => (
@@ -86,23 +89,22 @@ export const HowToCard = props => {
                     <h2> {item.name} </h2>
                     <p> {item.desc} </p>
 
-                    {/* <Link to={`/update-howtos/${item.id}`}>
-                        Edit
-                    </Link> */}
+                    {/* Conditional Rendering of edit and delete buttons */}
+                    {Username === item.username ? (
+                        <EditButton onClick={(e) => {
+                            e.preventDefault();
+                            console.log('Button CLicked');
+                            props.history.push(`/update-howtos/${item.id}`);
+                        }}>
+                            Edit
+                        </EditButton>
+                    ) : null}
 
-                    <EditButton onClick={(e) => {
-                        e.preventDefault();
-                        console.log('Button CLicked');
-                        props.history.push(`/update-howtos/${item.id}`);
-
-                    }} >
-                        Edit
-                    </EditButton>
-
-
-                    <DeleteButton onClick={() => props.deleteCard(item.id)}>
-                        Delete
-                    </DeleteButton>
+                    {Username === item.username ? (
+                        <DeleteButton onClick={() => props.deleteCard(item.id)}>
+                            Delete
+                        </DeleteButton>
+                    ) : null}
 
                 </IndividualCards>
             ))}
@@ -110,9 +112,3 @@ export const HowToCard = props => {
         </CardsContainer>
     )
 }
-
-/* <button onClick={()=> {props.history.push(`/update-howtos/${item.id}`)}} >
-                            Edit
-                        </button> */
-
-                        // window.location.reload();
