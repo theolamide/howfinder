@@ -51,6 +51,7 @@ export default function Dashboard(props) {
 
 const DashboardRoot = Styled.div`
     display: flex;
-    height: 85vh;
+    align-items:center;
+    height: 91vh;
     // border: 1px solid red;
 `

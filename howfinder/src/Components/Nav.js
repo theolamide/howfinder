@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from "react-router-dom";
 import styled from 'styled-components';
+import Logo from '../Images/howfinderLogo.png';
 
 
 const NavBox = styled.nav`
@@ -52,6 +53,15 @@ const NavDiv = styled.div`
         }
 `
 
+const imgStyle = {
+    maxHeight: 70,
+    maxWidth: 70,
+    marginLeft: 20,
+    marginTop: 10,
+    marginBottom: 10,
+    cursor: "pointer"
+};
+
 const Nav = (props) => {
 
     const Logout = () => {
@@ -61,7 +71,8 @@ const Nav = (props) => {
 
     return (
         <NavBox>
-            <H1Style>How-To</H1Style>
+            {/* <H1Style>How-To</H1Style> */}
+            <img style={imgStyle} src={Logo} alt="Logo" />
 
             <NavDiv>
                 <NavLink to="/dashboard">howFeed</NavLink>
