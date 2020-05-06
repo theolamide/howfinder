@@ -181,7 +181,7 @@ const FormikSignUp = withFormik({
 
     handleSubmit(values, { props, setStatus }) {
         axios
-            .post("https://build-week-how-to.herokuapp.com/api/auth/register", values)
+            .post("http://localhost:3300/api/auth/register", values)
             .then(res => {
                 setStatus(res.data);
                 console.log(res.status);

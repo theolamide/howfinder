@@ -1,0 +1,19 @@
+{
+    "version": 2,
+    "name": "howfinder",
+    "builds": [
+        {
+            "src": "howfinder/package.json",
+            "use": "@now/static-build",
+            "config": {
+                "distDir": "build"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "howfinder/$1"
+        }
+    ]
+}

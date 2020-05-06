@@ -34,6 +34,13 @@ const IndividualCards = Styled.div`
     // text-transform: capitalize;
     padding: 0.5rem;
 
+            .profile{
+                display:flex;
+                align-items: center;
+                width: 20%;
+                // border: 1px solid black;
+            }
+
             h2{
                 text-align: center;
                 margin-top: 0;
@@ -87,6 +94,15 @@ const DeleteButton = Styled.button`
         }
 `
 
+const imgStyle = {
+    maxHeight: 30,
+    maxWidth: 30,
+    borderRadius: 24,
+    border: "2px solid #553555",
+    marginLeft: 12,
+    backgroundColor: "white"
+};
+
 export const HowToCard = props => {
     var Username = localStorage.getItem('username')
 
@@ -95,7 +111,15 @@ export const HowToCard = props => {
         <CardsContainer>
             {props.howtos.map(item => (
                 <IndividualCards key={item.id} className='IndividualCards' >
-                    <h2> {item.name} by {item.username}</h2>
+                    <div className="profile">
+                        <img
+                            src='https://cdn4.iconfinder.com/data/icons/messenger-1-0-line/106/Profile_Line-512.png'
+                            style={imgStyle}
+                            alt="Profile"
+                        />
+                        <p> <i> {item.username}</i></p>
+                    </div>
+                    <h2> {item.name}</h2>
                     <p> {item.desc} </p>
 
                     {/* Conditional Rendering of edit and delete buttons */}
