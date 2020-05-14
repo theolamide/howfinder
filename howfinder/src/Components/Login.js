@@ -107,7 +107,7 @@ const LogInForms = withFormik({
 
     handleSubmit(values, { props, setStatus }) {
         axios
-            .post("http://localhost:3300/api/auth/login", values)
+            .post("https://howfinder.herokuapp.com/api/auth/login", values)
             .then(res => {
                 setStatus(res.data);
                 console.log(res);

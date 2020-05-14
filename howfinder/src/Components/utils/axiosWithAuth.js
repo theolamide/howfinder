@@ -6,7 +6,7 @@ var token = localStorage.getItem('token');
 export const axiosWithAuth = () => {
     token = localStorage.getItem('token');
     return axios.create({
-        baseURL: 'http://localhost:3300/api/auth',
+        baseURL: 'https://howfinder.herokuapp.com/api/auth',
         headers: {
             Authorization: token
         }
@@ -16,7 +16,7 @@ export const axiosWithAuth = () => {
 export const axiosWithoutAuth = () => {
     token = localStorage.getItem('token');
     return axios.create({
-        baseURL: 'http://localhost:3300/api',
+        baseURL: 'https://howfinder.herokuapp.com/api',
         headers: {
             Authorization: token
         }
